@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text & Emoji Animation Studio Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel:wght@600;900&family=Dancing+Script:wght@600;700&family=Fira+Code:wght@400;600&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Orbitron:wght@600;900&family=Pacifico&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,600;1,600&family=Press+Start+2P&family=Righteous&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-glow"></div>
+  
+  <header class="app-header">
+    <div class="logo">
+      <span class="logo-icon">✨</span>
+      <h1>Text & Emoji <span>Animation Studio</span></h1>
+    </div>
+    <p class="subtitle">Custom Text, Emojis, aur Custom Backgrounds (Upload ya Online Presets)!</p>
+  </header>
+
+  <main class="container">
+    <!-- Controls Panel -->
+    <section class="controls-card">
+      <!-- Text & Emoji Input -->
+      <div class="input-group full-width">
+        <div class="input-header-row">
+          <label for="custom-text">Enter Your Custom Text & Emojis:</label>
+          <span class="tip-text">💡 Emojis par click karein ya direct type karein!</span>
+        </div>
+
+        <div class="input-with-button">
+          <input type="text" id="custom-text" value="Text Animation 🔥✨🚀" placeholder="Type text and click emojis below...">
+          <button type="button" id="toggle-emoji-panel-btn" class="emoji-toggle-btn" title="Full Emoji Palette">
+            😀 All Emojis
+          </button>
+        </div>
+
+        <!-- Quick 1-Click Emoji Bar -->
+        <div class="quick-emoji-bar">
+          <span class="bar-label">Quick Emojis:</span>
+          <div class="emoji-scroll">
+            <button type="button" class="quick-emoji-chip" data-emoji="🔥">🔥</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="⚡">⚡</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="✨">✨</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="🚀">🚀</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="👑">👑</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="💎">💎</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="❤️">❤️</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="👾">👾</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="🌈">🌈</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="🌊">🌊</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="💀">💀</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="💯">💯</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="🌟">🌟</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="🎯">🎯</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="🎉">🎉</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="💥">💥</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="😎">😎</button>
+            <button type="button" class="quick-emoji-chip" data-emoji="🤩">🤩</button>
+          </div>
+        </div>
+
+        <!-- Full Expandable Emoji Palette -->
+        <div id="emoji-palette" class="emoji-palette">
+          <div class="palette-category">
+            <div class="cat-title">🔥 Popular & Energy</div>
+            <div class="cat-emojis">
+              <span>🔥</span><span>⚡</span><span>✨</span><span>🚀</span><span>👑</span><span>💎</span><span>❤️</span><span>💖</span><span>💥</span><span>🌟</span><span>💯</span><span>🎉</span>
+            </div>
+          </div>
+          <div class="palette-category">
+            <div class="cat-title">😀 Faces & Expressions</div>
+            <div class="cat-emojis">
+              <span>😀</span><span>😎</span><span>🤩</span><span>🥳</span><span>😈</span><span>👻</span><span>🤖</span><span>🥶</span><span>😱</span><span>👏</span><span>🙌</span><span>👍</span><span>✌️</span><span>👀</span>
+            </div>
+          </div>
+          <div class="palette-category">
+            <div class="cat-title">🎮 Gaming & Magic</div>
+            <div class="cat-emojis">
+              <span>👾</span><span>🕹️</span><span>🎮</span><span>💻</span><span>🔮</span><span>🪄</span><span>🛡️</span><span>⚔️</span><span>🏹</span><span>🏆</span><span>🦾</span><span>🪙</span><span>⏳</span><span>💣</span>
+            </div>
+          </div>
+          <div class="palette-category">
+            <div class="cat-title">🌈 Nature & Atmosphere</div>
+            <div class="cat-emojis">
+              <span>🌈</span><span>🌊</span><span>🌙</span><span>☀️</span><span>⭐</span><span>🌌</span><span>❄️</span><span>🌪️</span><span>🪐</span><span>🌹</span><span>🍀</span><span>🛸</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animation Options Row -->
+      <div class="options-row">
+        <!-- Animation Selection -->
+        <div class="input-group">
+          <label for="animation-select">Animation Style (15 Types):</label>
+          <select id="animation-select">
+            <optgroup label="🌟 Glowing & Energy">
+              <option value="neon">⚡ Neon Glow Effect</option>
+              <option value="fire">🔥 Burning Fire & Flames</option>
+              <option value="electric">⚡ Electric Plasma Zap</option>
+              <option value="gold">✨ Golden Shimmer / Luxury</option>
+            </optgroup>
+            <optgroup label="👾 Cyber & Retro">
+              <option value="glitch">👾 Cyberpunk RGB Glitch</option>
+              <option value="scanline">📺 Retro CRT TV Scanlines</option>
+              <option value="pixel">🕹️ 8-Bit Arcade Jump</option>
+              <option value="typewriter">⌨️ Typewriter Effect</option>
+            </optgroup>
+            <optgroup label="🌊 Motion & Physics">
+              <option value="wave">🌊 3D Bouncing Wave</option>
+              <option value="fall">🪂 Staggered Gravity Drop</option>
+              <option value="flip">🔄 3D Card Flip Rotate</option>
+              <option value="heartbeat">💓 Bass Pulse Heartbeat</option>
+            </optgroup>
+            <optgroup label="🎨 Artistic & Cinematic">
+              <option value="gradient">🌈 Liquid Gradient Flow</option>
+              <option value="smoke">💨 Cinematic Smoke Reveal</option>
+              <option value="mirror">🪞 Wet Floor Water Mirror</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Font Style Selection -->
+        <div class="input-group">
+          <label for="font-family-select">Font Style (11 Fonts):</label>
+          <select id="font-family-select">
+            <optgroup label="Modern & Clean">
+              <option value="'Montserrat', sans-serif">Modern Sans (Montserrat)</option>
+              <option value="'Fira Code', monospace">Coder Monospace (Fira Code)</option>
+            </optgroup>
+            <optgroup label="Futuristic & Sci-Fi">
+              <option value="'Orbitron', sans-serif">Futuristic Sci-Fi (Orbitron)</option>
+              <option value="'Righteous', cursive">Synthwave Bold (Righteous)</option>
+            </optgroup>
+            <optgroup label="Luxury & Royal">
+              <option value="'Playfair Display', serif">Elegant Serif (Playfair)</option>
+              <option value="'Cinzel', serif">Royal Empire (Cinzel)</option>
+            </optgroup>
+            <optgroup label="Handwriting & Brush">
+              <option value="'Pacifico', cursive">Smooth Brush (Pacifico)</option>
+              <option value="'Dancing Script', cursive">Elegant Script (Dancing)</option>
+              <option value="'Permanent Marker', cursive">Street Marker (Graffiti)</option>
+            </optgroup>
+            <optgroup label="Arcade & Comics">
+              <option value="'Bangers', cursive">Comic Action (Bangers)</option>
+              <option value="'Press Start 2P', monospace">8-Bit Pixel Retro (Arcade)</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Color Picker -->
+        <div class="input-group">
+          <label for="color-picker">Accent Color:</label>
+          <div class="color-picker-wrap">
+            <input type="color" id="color-picker" value="#16A34A">
+            <span id="color-hex">#16A34A</span>
+          </div>
+        </div>
+
+        <!-- Font Size Slider -->
+        <div class="input-group">
+          <label for="font-size-slider">Font Size: <span id="font-size-val">56px</span></label>
+          <input type="range" id="font-size-slider" min="20" max="96" value="56">
+        </div>
+
+        <!-- Animation Speed Slider -->
+        <div class="input-group">
+          <label for="speed-slider">Speed: <span id="speed-val">1x</span></label>
+          <input type="range" id="speed-slider" min="0.4" max="2.5" step="0.1" value="1.0">
+        </div>
+
+        <div class="input-group">
+          <label for="preview-width-input">Preview Width</label>
+          <input type="text" id="preview-width-input" class="dimension-input" value="100%" placeholder="50% or 320px" spellcheck="false">
+        </div>
+
+        <div class="input-group">
+          <label for="preview-height-input">Preview Height</label>
+          <input type="text" id="preview-height-input" class="dimension-input" value="100%" placeholder="50% or 500px" spellcheck="false">
+        </div>
+
+        <span id="preview-size-status" class="preview-size-status" aria-live="polite"></span>
+      </div>
+
+      <!-- NEW: Background Selection & Upload Section -->
+      <div class="background-controls-panel">
+        <div class="bg-panel-header">
+          <label>🖼️ Background Settings (Website Presets ya Apna Image Upload Karein):</label>
+          <div class="bg-mode-toggles">
+            <label class="checkbox-container">
+              <input type="checkbox" id="text-mask-toggle">
+              <span class="checkmark"></span>
+              Image inside Text (Text Masking Mode)
+            </label>
+          </div>
+        </div>
+
+        <!-- Background Presets & Upload Row -->
+        <div class="bg-options-wrap">
+          <div class="bg-presets-list">
+            <button type="button" class="bg-preset-btn active" data-bg="default">
+              <span class="bg-mini-preview default-bg"></span>
+              <span class="bg-title">Dark Grid</span>
+            </button>
+            <button type="button" class="bg-preset-btn" data-bg="galaxy">
+              <span class="bg-mini-preview galaxy-bg"></span>
+              <span class="bg-title">Cosmic Galaxy</span>
+            </button>
+            <button type="button" class="bg-preset-btn" data-bg="cybercity">
+              <span class="bg-mini-preview cybercity-bg"></span>
+              <span class="bg-title">Cyber City</span>
+            </button>
+            <button type="button" class="bg-preset-btn" data-bg="neonfluid">
+              <span class="bg-mini-preview neonfluid-bg"></span>
+              <span class="bg-title">Neon Smoke</span>
+            </button>
+            <button type="button" class="bg-preset-btn" data-bg="ocean">
+              <span class="bg-mini-preview ocean-bg"></span>
+              <span class="bg-title">Dark Waves</span>
+            </button>
+            <button type="button" class="bg-preset-btn" data-bg="matrix">
+              <span class="bg-mini-preview matrix-bg"></span>
+              <span class="bg-title">Matrix Grid</span>
+            </button>
+          </div>
+
+          <!-- Upload Custom Image Button -->
+          <div class="bg-upload-wrap">
+            <input type="file" id="bg-file-input" accept="image/*" style="display: none;">
+            <button type="button" id="upload-bg-btn" class="upload-btn">
+              📁 Upload My Image
+            </button>
+            <button type="button" id="reset-bg-btn" class="reset-btn" title="Reset to Default Background">
+              🔄 Reset
+            </button>
+          </div>
+        </div>
+
+        <!-- Background Adjustment Sliders -->
+        <div class="bg-adjusters-row">
+          <div class="adjuster-item">
+            <label for="bg-darkness-slider">Background Darkness: <span id="bg-darkness-val">60%</span></label>
+            <input type="range" id="bg-darkness-slider" min="0" max="95" value="60">
+          </div>
+          <div class="adjuster-item">
+            <label for="bg-blur-slider">Background Blur: <span id="bg-blur-val">0px</span></label>
+            <input type="range" id="bg-blur-slider" min="0" max="25" value="0">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preview Stage -->
+    <section class="preview-stage">
+      <div class="stage-header">
+        <div class="header-left">
+          <span class="badge">Live Preview</span>
+          <span id="current-effect-name" class="current-effect-label">⚡ Neon Glow Effect</span>
+        </div>
+        <button id="replay-btn" title="Restart Animation">🔁 Replay</button>
+      </div>
+
+      <div class="stage-canvas-frame">
+        <div class="stage-canvas" id="stage-canvas">
+          <!-- Background Layer -->
+          <div class="canvas-bg-layer" id="canvas-bg-layer"></div>
+          <!-- Darkening / Tint Overlay -->
+          <div class="canvas-overlay" id="canvas-overlay"></div>
+
+          <!-- Animated Text & Emojis Container -->
+          <div id="animated-text-container" class="anim-neon">
+            <!-- Text and Emojis dynamically injected here -->
+          </div>
+        </div>
+      </div>
+
+      <div class="stage-footer">
+        <div class="stage-actions">
+          <button id="copy-code-btn" class="primary-btn">📋 Copy HTML & CSS Code</button>
+          <button id="download-video-btn" class="video-btn" title="Download the animated preview as a video">⬇️ Download Video</button>
+        </div>
+        <span id="copy-status" class="copy-status"></span>
+        <span id="video-status" class="video-status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <!-- Presets Gallery -->
+    <section class="presets-section">
+      <div class="presets-header">
+        <h2>🔥 Click Any Style Below to Activate Instantly</h2>
+        <span class="presets-count">15 Animation Styles</span>
+      </div>
+
+      <div class="presets-grid">
+        <!-- Neon -->
+        <div class="preset-card" data-effect="neon">
+          <div class="preset-tag">Glowing & Energy</div>
+          <div class="preset-preview neon-preview">NEON ✨ GLOW</div>
+          <div class="preset-name">⚡ Neon Glow</div>
+        </div>
+
+        <!-- Fire -->
+        <div class="preset-card" data-effect="fire">
+          <div class="preset-tag">Fire & Heat</div>
+          <div class="preset-preview fire-preview">FIRE 🔥 FLAME</div>
+          <div class="preset-name">🔥 Burning Flame</div>
+        </div>
+
+        <!-- Electric -->
+        <div class="preset-card" data-effect="electric">
+          <div class="preset-tag">Electricity</div>
+          <div class="preset-preview electric-preview">ZAP ⚡ SPARKS</div>
+          <div class="preset-name">⚡ Electric Plasma</div>
+        </div>
+
+        <!-- Gold -->
+        <div class="preset-card" data-effect="gold">
+          <div class="preset-tag">Metallic</div>
+          <div class="preset-preview gold-preview">GOLD 👑 SHINE</div>
+          <div class="preset-name">✨ Golden Luxury</div>
+        </div>
+
+        <!-- Glitch -->
+        <div class="preset-card" data-effect="glitch">
+          <div class="preset-tag">Cyberpunk</div>
+          <div class="preset-preview glitch-preview" data-text="CYBER 👾 ERROR">CYBER 👾 ERROR</div>
+          <div class="preset-name">👾 RGB Glitch</div>
+        </div>
+
+        <!-- Scanline -->
+        <div class="preset-card" data-effect="scanline">
+          <div class="preset-tag">Retro Tech</div>
+          <div class="preset-preview scanline-preview">CRT 📺 SCREEN</div>
+          <div class="preset-name">📺 CRT Scanline</div>
+        </div>
+
+        <!-- Pixel -->
+        <div class="preset-card" data-effect="pixel">
+          <div class="preset-tag">8-Bit Arcade</div>
+          <div class="preset-preview pixel-preview">JUMP 🕹️ COIN</div>
+          <div class="preset-name">🕹️ Arcade Jump</div>
+        </div>
+
+        <!-- Typewriter -->
+        <div class="preset-card" data-effect="typewriter">
+          <div class="preset-tag">Typing</div>
+          <div class="preset-preview typewriter-preview">Coding 💻...</div>
+          <div class="preset-name">⌨️ Typewriter</div>
+        </div>
+
+        <!-- Wave -->
+        <div class="preset-card" data-effect="wave">
+          <div class="preset-tag">Wave Motion</div>
+          <div class="preset-preview wave-preview">
+            <span>W</span><span>A</span><span>V</span><span>E</span><span>🌊</span>
+          </div>
+          <div class="preset-name">🌊 3D Wave</div>
+        </div>
+
+        <!-- Gravity Fall -->
+        <div class="preset-card" data-effect="fall">
+          <div class="preset-tag">Physics Drop</div>
+          <div class="preset-preview fall-preview">
+            <span>D</span><span>R</span><span>O</span><span>P</span><span>🪂</span>
+          </div>
+          <div class="preset-name">🪂 Gravity Drop</div>
+        </div>
+
+        <!-- 3D Flip -->
+        <div class="preset-card" data-effect="flip">
+          <div class="preset-tag">3D Rotation</div>
+          <div class="preset-preview flip-preview">
+            <span>F</span><span>L</span><span>I</span><span>P</span><span>🔄</span>
+          </div>
+          <div class="preset-name">🔄 3D Flip</div>
+        </div>
+
+        <!-- Heartbeat -->
+        <div class="preset-card" data-effect="heartbeat">
+          <div class="preset-tag">Rhythm Pulse</div>
+          <div class="preset-preview heartbeat-preview">PULSE 💓 LOVE</div>
+          <div class="preset-name">💓 Bass Pulse</div>
+        </div>
+
+        <!-- Gradient -->
+        <div class="preset-card" data-effect="gradient">
+          <div class="preset-tag">Liquid Colors</div>
+          <div class="preset-preview gradient-preview">FLOW 🌈 MAGIC</div>
+          <div class="preset-name">🌈 Liquid Gradient</div>
+        </div>
+
+        <!-- Smoke -->
+        <div class="preset-card" data-effect="smoke">
+          <div class="preset-tag">Atmospheric</div>
+          <div class="preset-preview smoke-preview">SMOKE 💨 MIST</div>
+          <div class="preset-name">💨 Smoke Reveal</div>
+        </div>
+
+        <!-- Mirror -->
+        <div class="preset-card" data-effect="mirror">
+          <div class="preset-tag">Reflection</div>
+          <div class="preset-preview mirror-preview">SHINE 💎 GLOW</div>
+          <div class="preset-name">🪞 Wet Floor Mirror</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code Modal -->
+    <div id="code-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Generated Animation Code</h3>
+          <button id="close-modal-btn" class="close-btn">&times;</button>
+        </div>
+        <div class="code-box">
+          <button id="modal-copy-btn" class="copy-small-btn">Copy to Clipboard</button>
+          <pre><code id="code-output"></code></pre>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Running live on <a href="http://localhost:3000" target="_blank" style="color: #00f2fe; text-decoration: none;">http://localhost:3000</a> | Double click <strong>start.bat</strong> anytime to launch!</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
